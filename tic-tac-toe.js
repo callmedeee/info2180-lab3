@@ -9,6 +9,7 @@ function loadDOM(){
     hoverStyle()
     console.log("Styles has Loaded!")
     plays()
+    console.log("Game is Ready!")
 }
 
 function showBoard(){ 
@@ -50,7 +51,7 @@ function plays(){
                 });
               }
 
-        }
+        }, {once: true});
     }
 }
 
