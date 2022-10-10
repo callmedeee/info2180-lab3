@@ -1,7 +1,14 @@
+let currentTurn = "X";
+let checkArray = ['','','','','','','','',''];
+
 document.addEventListener("DOMContentLoaded", loadDOM)
 
 function loadDOM(){ 
     showBoard() 
+    console.log("Board has Loaded!")
+    hoverStyle()
+    console.log("Styles has Loaded!")
+    plays()
 }
 
 function showBoard(){ 
@@ -25,6 +32,24 @@ function plays(){
             index = squaredivs.indexOf(div);
             checkArray.splice(index,1,currentTurn);
             currentTurn = currentTurn == "X" ? "O" : "X";
+
+            console.log(checkArray)
+
             }
     }
 }
+
+function hoverStyle(){
+    const gridSquares = Array.from(document.querySelectorAll(".square"));
+    gridSquares.forEach(function(squares) {
+        squares.addEventListener('mouseover', function(s) {
+          s.target.classList.add('hover');
+        });
+        
+        squares.addEventListener('mouseout', function(s) {
+          s.target.classList.remove('hover');
+        });
+      });
+}
+
+
